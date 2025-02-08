@@ -123,13 +123,14 @@
         <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Zayouma Logo"></a>
         <ul>
         <li class="dropdown">
-    <select>
-        <option value="">categories</option>
-        <option value="hijabs"><a href="/hijabs">hijabs</a></option>
-        <option value="abayas"><a href="/abayas">abayas</a></option>
-        <option value="skirts"><a href="/skirts">skirts</a></option>
+    <select id="categorySelect" onchange="location.href=this.value;">
+        <option value="">Categories</option>
+        <option value="/hijabs">Hijabs</option>
+        <option value="/abayas">Abayas</option>
+        <option value="/skirts">Skirts</option>
     </select>
 </li>
+
             <li>your basket</li>
             <a href="/connexion"><li>connexion</li></a>
         </ul>

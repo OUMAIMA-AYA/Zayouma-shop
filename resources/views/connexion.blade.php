@@ -54,7 +54,8 @@
     <form action="/connexion" method="post">
         @csrf
         <input type="email" name="email" placeholder="Enter your email" required>
-        <input type="password" name="password" placeholder="Enter your password" required>
+        <input type="password" name="password" placeholder="Enter your password" required><br>
+        <p style="color: red;">i forget my password </p>
         <input type="submit" value="Login"><br>
         <a href="/signup">create an account !</a>
     </form>

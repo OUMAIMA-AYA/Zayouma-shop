@@ -29,25 +29,21 @@ use Illuminate\Support\Facades\Hash;
             }
         }
         
-    public function signup(Request $request)
-    {
-        // Validate the incoming request data
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',  // Ensure the email is unique
-            'password' => 'required|min:6|confirmed',  // 'confirmed' will check for password confirmation
-        ]);
-
-        // Create the new user
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),  // Hash the password before saving it
-        ]);
-
-        // Redirect to home page or wherever you'd like
-        return redirect()->route('connexion');
-    }
+        public function signup(Request $request)
+        {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|min:5|confirmed',
+            ]);
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            return redirect()->route('connexion');
+        }
+        
 
 }
     
