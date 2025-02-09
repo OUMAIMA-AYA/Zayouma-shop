@@ -74,19 +74,31 @@ body {
 }
 
 </style>
-    <div class="products-container">
-        @if ($hijabs->count() > 0)
-            @foreach ($hijabs as $hijab)
-                <div class="product-card">
-                    <img src="{{ asset( $hijab->image_path) }}" alt="{{ $hijab->name }}" class="product-image">
-                    <div class="product-info">
-                        <p class="product-name">{{ $hijab->name }}</p>
-                        <p class="product-price">${{ $hijab->price }}</p>
+<div class="products-container">
+    @if ($hijabs->count() > 0)
+        @foreach ($hijabs as $hijab)
+            <div class="product-card">
+                <img src="{{ asset( $hijab->image_path) }}" alt="{{ $hijab->name }}" class="product-image">
+                <div class="product-info">
+                    <p class="product-name">{{ $hijab->name }}</p>
+                    <p class="product-price">${{ $hijab->price }}</p>
+                    
+                    <!-- Quantity picker (e.g., default 1) -->
+                    <div class="quantity">
+                        <label for="quantity-{{ $hijab->id }}">Quantity:</label>
+                        <input type="number" id="quantity-{{ $hijab->id }}" name="quantity" min="1" value="1">
                     </div>
+
+                    <!-- Add to Cart button -->
+                    <button class="add-to-cart-btn" data-product-id="{{ $hijab->id }}">
+                        Add to Cart
+                    </button>
                 </div>
-            @endforeach
-        @else
-            <p class="no-products">No products found.</p>
-        @endif
-    </div>
+            </div>
+        @endforeach
+    @else
+        <p class="no-products">No products found.</p>
+    @endif
+</div>
+
 @endsection

@@ -75,7 +75,7 @@
     </select>
 </li>
 
-            <li>your basket</li>
+            <a href="/cart"><li>your cart</li></a> 
             <a href="/connexion"><li>connexion</li></a>
         </ul>
     </nav>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConnexionController;
 use App\Models\Product;
@@ -37,5 +38,18 @@ Route::get('/skirts', function(){
     $skirts = Product::where('category_id', 3)->get(); 
     return view('skirts', compact('skirts'));
 });
+
+
+// Route to add a product to the cart
+Route::post('/cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
+
+// Route to view the cart
+Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.index');
+
+// Route to update the quantity of a product in the cart
+Route::post('/cart/update/{productId}', [CartController::class, 'updateQuantity'])->name('cart.update');
+
+// Route to proceed to checkout
+Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
 
