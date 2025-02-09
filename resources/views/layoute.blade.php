@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +47,7 @@
             color: beige;
         }
 
+
         .footer {
     position: fixed;
     bottom: 0;
@@ -60,19 +62,27 @@
     </style>
 </head>
 <body>
+    
     <nav>
-       <a href="/"> <img src="{{ asset('images/logo.jpg') }}" alt="Zayouma Logo"></a>
+        <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="Zayouma Logo"></a>
         <ul>
-            <li><a href="/">home </a></li>
+        <li class="dropdown">
+    <select id="categorySelect" onchange="location.href=this.value;">
+        <option value="" disabled selected>Categories</option>
+        <option value="/hijabs">Hijabs</option>
+        <option value="/abayas">Abayas</option>
+        <option value="/skirts">Skirts</option>
+    </select>
+</li>
+
             <li>your basket</li>
             <a href="/connexion"><li>connexion</li></a>
         </ul>
     </nav>
-    @yield('content')
+    
     <div class="footer">
         &copy; 2025 Zayouma. All rights reserved.
     </div>
-    
-   
+    @yield('content')
 </body>
 </html>

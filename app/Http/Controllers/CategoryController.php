@@ -12,6 +12,7 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('home', compact('categories'));
     }
+    
 
     
 }

@@ -11,7 +11,6 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::get('/', [CategoryController::class, 'index']);
-
 //////////////////////////////////////////////////////////connexion 
 Route::get('/connexion', function(){
     return view('connexion');

@@ -3,7 +3,7 @@
 <style>
     /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Playfair Display", serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
@@ -78,7 +78,7 @@ body {
         @if ($hijabs->count() > 0)
             @foreach ($hijabs as $hijab)
                 <div class="product-card">
-                    <img src="{{ asset('storage/' . $hijab->image_path) }}" alt="{{ $hijab->name }}" class="product-image">
+                    <img src="{{ asset( $hijab->image_path) }}" alt="{{ $hijab->name }}" class="product-image">
                     <div class="product-info">
                         <p class="product-name">{{ $hijab->name }}</p>
                         <p class="product-price">${{ $hijab->price }}</p>
